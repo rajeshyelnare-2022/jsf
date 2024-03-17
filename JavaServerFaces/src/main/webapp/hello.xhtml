@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui = "http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>JSF 2.0 Hello World</title>
+</h:head>
+<h:body>
+	<h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
+	
+
+       <h:outputText value="simple " />
+      <h:outputText value="output text " rendered="#{helloBean.myUIFragment != 'my'}" />
+	<h:form>
+	      <h:outputText value="output text 1" rendered="#{helloBean.myUIFragment != 'my'}" />
+	      <h:outputText value="output text for outputTextTest" rendered="#{outputTextTest}" />
+	      	      <h:outputText value="output text for outputTextTest1" rendered="#{outputTextTest1}" />
+	<ui:composition>
+	<ui:fragment rendered="#{helloBean.myUIFragment == 'my'}">
+	   <p>
+	
+	    #{helloBean.namenew}
+	     <h:outputText value="inside simple " />
+	   </p>
+	   </ui:fragment>
+	   	<ui:fragment rendered="#{helloBean.myUIFragment != 'my'}">
+	   	<p>
+	     Did not receive my from bean ..
+	          <h:outputText value="inside simple2 " />
+	          <c:if test="#{helloBean.mybool}">
+    test123
+</c:if>
+
+<c:if test="#{helloBean.myUIFragment == 'my1'}">
+    my1 found
+</c:if>
+	   </p>
+	   	   </ui:fragment>
+	   	
+	   </ui:composition>
+		<h:inputText value="#{helloBean.name}"></h:inputText>
+		<h:commandButton value="Welcome Me" action="welcome"></h:commandButton>
+	</h:form>
+</h:body>
+</html>
